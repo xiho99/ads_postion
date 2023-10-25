@@ -9,12 +9,17 @@ let routes = [
 		path: '/',
 		component: () => import(`../pages/index.vue`),
 		meta: {
-			title: 'start page',
+			title: '欢迎访问',
 			keepAlive: false,
 			noAuth: true,
 			depth: 1,
 		},
+	},
+	{
+		path:'/submitform',
+		component: () => import(`../pages/SubmitForm.vue`),
 	}
+
 ];
 
 // 创建路由对象
