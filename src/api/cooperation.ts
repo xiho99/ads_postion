@@ -1,3 +1,4 @@
 import { get, post } from './base';
+import { ICooperation } from "@/models/ICooperation";
 
-export const submitCooperate = () => post('/addCooperate');
+export const submitCooperate = (param: ICooperation) => post('/addCooperate', param);
