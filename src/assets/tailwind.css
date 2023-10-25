@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: #fee7d3;
+    font-size: 14px;
+    color: #000;
+    transition: 0.2s;
+}
+
+
+.card .list ul li div img,
+.card .list ul li div span.nologo { 
+    display:inline-block;
+    width:18px; 
+    height:18px;  
+    margin:15px 8px 15px 8px; 
+    border-radius:50%;
+    float: left;
+}
+.card .list ul li div span.nologo {
+    background: url('../../public/images/logolist.png');
+     }
+   
+.card .list ul li div{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+.card .list ul li div {
+    height: 34px;
+    line-height: 34px;
+    transition: .2s;
+    overflow: hidden;
+    white-space: nowrap;
+    border-radius: 4px;
+}
+.card .list ul li:hover div {
+    background-color: #EEE;
+    color: #F00;
+}

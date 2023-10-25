@@ -1,0 +1,12 @@
+// 构建版本
+VUE_APP_BUILD_CODE = 1
+// 平台
+VUE_APP_FLAVOR = app
+// 名称
+VUE_APP_ENV = default
+// app版本号
+APP_VERSION_CODE = 1
+// app版本号
+APP_VERSION_NAME = 1.0.0
+// ios app id
+APP_IOS_ID = com.nmc-games.default
