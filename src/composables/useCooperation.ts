@@ -24,7 +24,7 @@ export default function useCooperation() {
             message: formInput.aircraft,
             cat_id: 0,
         }
-        const response = await submitCooperate(request: ICooperation);
+        const response = await submitCooperate(request);
         if (response['code'] === EnumApiErrorCode.success) {
             notificationHelper.notification('Success', EnumMessageType.Success);
         }
