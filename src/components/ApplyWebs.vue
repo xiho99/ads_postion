@@ -1069,8 +1069,8 @@
             <li class="pb-2">绿色，安全，是我们的宗旨。</li>
         </ul>
         <div class=" justify-center items-center gap-4 hidden sm:flex">
-            <a class="bg-[#ffb000] text-white text-center transition-[0.2s] rounded-[15px] w-[100px] px-3 py-1" href="../add.html" target="_blank">自主提交</a>
-            <a class="bg-[#ffb000] text-white text-center transition-[0.2s] rounded-[15px] w-[100px] px-3 py-1" href="../add.html" target="_blank">合作联系</a>
+            <router-link class="bg-[#ffb000] text-white text-center transition-[0.2s] rounded-[15px] w-[100px] px-3 py-1" to="/submitform" target="_blank">自主提交</router-link>
+            <router-link class="bg-[#ffb000] text-white text-center transition-[0.2s] rounded-[15px] w-[100px] px-3 py-1" to="/submitform" target="_blank">合作联系</router-link>
         </div>
     </div>
     </div>
