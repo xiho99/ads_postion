@@ -1,3 +1,4 @@
+// @ts-ignore
 import moment from 'moment';
 const functionHelper = {
     dateStringTo12Hour( dateString: string, formatString = 'DD-MM-YYYY hh:mm a'): string {
