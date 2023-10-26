@@ -13,16 +13,16 @@
         <ul
           class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-start items-center"
         >
-          <li
-            class="gogo text-center rounded-md flex flex-col items-center py-[5px] relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
-            data-url=" http://792g.33live32.xyz "
-            title="33短视频"
+          <a
+            class="gogo text-center rounded-md flex flex-col items-center py-[5px] relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"           
             v-for="menu in menus.Icon"
             :key="menu.id"
+            :href="menu.link"
+            target="_blank"
           >
             <img class="w-14 h-14 rounded-md my-2" :src="menu.image" />
             <p class="truncate  w-14 ">{{ menu.name }}</p>
-          </li>
+          </a>
         </ul>
       </div>
       <!-- applist End here -->
@@ -34,16 +34,18 @@
         <ul
           class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-center items-center "
         >
-          <li
+          <a
             v-for="button in menus.Button"
             :key="button.id"
             :style="{ backgroundColor: button.color }"
             class="text-center inline-block text-[14px] rounded-md px-[12px] text-white py-[8px] m-[5px] max-w-[120px]"
+            :href="button.link"
+            target="_blank"
           >
             <div class="truncate text-center w-full">
-              <a :href="button.link" >{{button.name}}</a>
+              <p>{{button.name}}</p>
             </div>
-          </li>
+          </a>
         </ul>
       </div>
       <!-- wzlist End here -->
@@ -60,14 +62,16 @@
             <ul
               class="flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
-              <li
+              <a
                 v-for="app in groupItems.onlineVideo"
                 :key="app.id"
                 class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                :href="app.link"
+                target="_blank"
               >
                 <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                <a class="truncate md:text-clip w-[120px]" :href="app.link">{{ app.name }}</a>
-              </li>
+                <p class="truncate md:text-clip w-[120px]" :href="app.link">{{ app.name }}</p>
+              </a>
             </ul>
             <div
               class="mt-6"
@@ -76,14 +80,16 @@
             <ul
               class="mt-6 flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
-            <li
+            <a
                 v-for="app in groupItems.onlineVideo"
                 :key="app.id"
                 class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                :href="app.link"
+                target="_blank"
               >
                 <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                <a class="truncate md:text-clip w-[120px]" :href="app.link">{{ app.name }}</a>
-              </li>
+                <p class="truncate md:text-clip w-[120px]">{{ app.name }}</p>
+              </a>
             </ul>
           </div>
         </div>
@@ -101,14 +107,16 @@
             <ul
               class=" flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
-              <li
+              <a
                 v-for="app in groupItems.welfareNavigation"
                 :key="app.id"
                 class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                :href="app.link"
+                target="_blank"
               >
                 <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                <a class="truncate md:text-clip w-[120px]" :href="app.link">{{ app.name }}</a>
-              </li>
+                <p class="truncate md:text-clip w-[120px]">{{ app.name }}</p>
+              </a>
             </ul>
           </div>
         </div>
@@ -129,18 +137,20 @@
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
               >
-                <li
+                <a
                   v-for="app in groupItems.benefitOnMobilePhone"
                   :key="app.id"
                   class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                  :href="app.link"
+                  target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
                   <div class="truncate  w-full">
-                    <a href="#">{{
+                    <p >{{
                     app.name
-                  }}</a>
+                  }}</p>
                   </div>
-                </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -156,18 +166,20 @@
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
               >
-                <li
+                <a
                   v-for="app in groupItems.datingAndLiveBroadcasting"
                   :key="app.id"
                   class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                  :href="app.link"
+                  target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
                   <div class="truncate  w-full">
-                    <a href="#">{{
+                    <p>{{
                     app.name
-                  }}</a>
+                  }}</p>
                   </div>
-                </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -183,18 +195,20 @@
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
               >
-                <li
+                <a
                   v-for="app in groupItems.yuri2D"
                   :key="app.id"
                   class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2  rounded-md items-center justify-center"
+                  :href="app.link"
+                  target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
                   <div class="truncate  w-full">
-                    <a href="#">{{
+                    <p>{{
                     app.name
-                  }}</a>
+                  }}</p>
                   </div>
-                </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -210,18 +224,20 @@
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
               >
-                <li
+                <a
                   v-for="app in groupItems.heartBeatNovel"
                   :key="app.id"
                   class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                  :href="app.link"
+                  target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
                   <div class="truncate  w-full">
-                    <a href="#">{{
+                    <p>{{
                     app.name
-                  }}</a>
+                  }}</p>
                   </div>
-                </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -237,18 +253,20 @@
               <ul
                 class="mt-2 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center p-6 items-center"
               >
-                <li
+                <a
                   v-for="app in groupItems.passionatePicture"
                   :key="app.id"
                   class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                  :href="app.link"
+                  target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
                   <div class="truncate  w-full">
-                    <a href="#">{{
+                    <p>{{
                     app.name
-                  }}</a>
+                  }}</p>
                   </div>
-                </li>
+                </a>
               </ul>
             </div>
           </div>
@@ -264,18 +282,20 @@
               <ul
                 class="mt-2 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center p-6"
               >
-                <li
+                <a
                   v-for="app in groupItems.utilities"
                   :key="app.id"
                   class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
+                  :href="app.link"
+                  target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
                   <div class="truncate  w-full">
-                    <a href="#">{{
+                    <p>{{
                     app.name
-                  }}</a>
+                  }}</p>
                   </div>
-                </li>
+                </a>
               </ul>
             </div>
           </div>
