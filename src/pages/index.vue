@@ -10,11 +10,8 @@
         id="sssuo_banner"
       >
         <ul class="m-[10px]">
-          <a
-            class="gogo w-full inline-block mb-2"
-            
-          >
-            <img class="w-full" src="/images/add1.gif " />
+          <a class="gogo w-full inline-block mb-2" v-for="(ad, index) in ads" :key="index" :href="ad.link" target="_blank">
+            <img class="w-full" :src="ad.image" />
           </a>
         </ul>
       </div>
@@ -305,7 +302,7 @@ import Header from "../components/Header.vue";
 import Advertisement from "../components/Addvertisement.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "@/composables/useIndex";
-const { isLoading, menus, groupItems } = useIndex();
+const { isLoading, menus, groupItems, ads } = useIndex();
 </script>
 <style scoped>
 /* scroll bar style */

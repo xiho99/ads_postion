@@ -1,10 +1,11 @@
 import { onMounted, reactive, ref } from "vue";
-import { getConfiguration, getGroupCategory, getMenu, getMoreSite } from "@/api/home";
+import { getAds, getConfiguration, getGroupCategory, getMenu, getMoreSite } from "@/api/home";
 import { IConfiguration } from "@/models/IConfiguration";
 import { IMenu } from "@/models/IMenu";
 import store from "@/store";
 import EnumApiErrorCode from "@/models/enums/enumApiErrorCode";
 import { IMoreSite } from "@/models/IMoreSite";
+import { IAds } from "@/models/IAds";
 
 export default function useIndex() {
     const isLoading = ref(false);
@@ -51,17 +52,25 @@ export default function useIndex() {
         }
         isLoading.value = false;
     }
-    onMounted(() => {
-        getConfigItem();
-        getMenuItem();
-        getGroupItem();
-        getMoreSiteItem();
-    })
+    const ads = ref<IAds[]>([]);
+    const getAdsItem = async () => {
+        isLoading.value = true;
+        const response = await getAds();
+        if (response["code"] === EnumApiErrorCode.success) {
+            ads.value = response.data;
+        }
+        isLoading.value = false;
+    }
+    getConfigItem();
+    getMenuItem();
+    getGroupItem();
+    getMoreSiteItem();
+    getAdsItem();
     return {
-        store,
         isLoading,
         menus,
         groupItems,
         moreSites,
+        ads,
     }
 }

@@ -6,8 +6,8 @@
     </div>
 </template>
 <script setup lang="ts">
-import useIndex from "@/composables/useIndex";
-const { store } = useIndex();
+import { useStore } from "vuex";
 
+const store = useStore()
 </script>
 <style></style>

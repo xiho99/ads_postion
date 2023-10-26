@@ -1,6 +1,6 @@
 import {
 	createRouter,
-	createWebHashHistory,
+	createWebHistory,
 } from 'vue-router';
 
 
@@ -19,7 +19,7 @@ let routes = [
 
 // 创建路由对象
 const router = createRouter({
-	history: createWebHashHistory(),
+	history: createWebHistory(),
 	routes
 });
 
