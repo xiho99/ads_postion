@@ -37,7 +37,7 @@ export default function useIndex() {
         const response = await getGroupCategory();
         if (response["code"] === EnumApiErrorCode.success) {
             response.data.forEach(e => {
-                groupItems[e.key] = e.group;
+                groupItems.value[e.key] = e.group;
             });
         }
         isLoading.value = false;
@@ -58,6 +58,7 @@ export default function useIndex() {
         getMoreSiteItem();
     })
     return {
+        store,
         isLoading,
         menus,
         groupItems,
