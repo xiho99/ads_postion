@@ -4,7 +4,21 @@
     <main
       class="sm:w-[calc(100%-100px)] md:w-[calc(100%-150px)] lg:w-[calc(100%-300px)] max-w-[1460px] mx-auto"
     >
-      <Advertisement />
+      <!-- Advertisement start here -->
+      <div
+        class="banner w-full max-w-[700px] mx-auto overflow-hidden"
+        id="sssuo_banner"
+      >
+        <ul class="m-[10px]">
+          <a
+            class="gogo w-full inline-block mb-2"
+            
+          >
+            <img class="w-full" src="/images/add1.gif " />
+          </a>
+        </ul>
+      </div>
+      <!-- Advertisement ENd here -->
       <!-- applist start here -->
       <div
         class="applist overflow-hidden mx-[10px] my-[5px]"
@@ -14,14 +28,14 @@
           class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-start items-center"
         >
           <a
-            class="gogo text-center rounded-md flex flex-col items-center py-[5px] relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"           
+            class="gogo text-center rounded-md flex flex-col items-center py-[5px] relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
             v-for="menu in menus.Icon"
             :key="menu.id"
             :href="menu.link"
             target="_blank"
           >
             <img class="w-14 h-14 rounded-md my-2" :src="menu.image" />
-            <p class="truncate  w-14 ">{{ menu.name }}</p>
+            <p class="truncate w-14">{{ menu.name }}</p>
           </a>
         </ul>
       </div>
@@ -32,7 +46,7 @@
         id="sssuo_word"
       >
         <ul
-          class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-center items-center "
+          class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-center items-center"
         >
           <a
             v-for="button in menus.Button"
@@ -43,7 +57,7 @@
             target="_blank"
           >
             <div class="truncate text-center w-full">
-              <p>{{button.name}}</p>
+              <p>{{ button.name }}</p>
             </div>
           </a>
         </ul>
@@ -70,7 +84,9 @@
                 target="_blank"
               >
                 <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                <p class="truncate md:text-clip w-[120px]" :href="app.link">{{ app.name }}</p>
+                <p class="truncate md:text-clip w-[120px]" :href="app.link">
+                  {{ app.name }}
+                </p>
               </a>
             </ul>
             <div
@@ -80,7 +96,7 @@
             <ul
               class="mt-6 flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
-            <a
+              <a
                 v-for="app in groupItems.onlineVideo"
                 :key="app.id"
                 class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
@@ -105,7 +121,7 @@
             class="list bg-white p-6 border-[5px] rounded-[12px] border-[#c59469]"
           >
             <ul
-              class=" flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
+              class="flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
               <a
                 v-for="app in groupItems.welfareNavigation"
@@ -145,23 +161,19 @@
                   target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                  <div class="truncate  w-full">
-                    <p >{{
-                    app.name
-                  }}</p>
+                  <div class="truncate w-full">
+                    <p>{{ app.name }}</p>
                   </div>
                 </a>
               </ul>
             </div>
           </div>
           <div class="card">
-            <div
-              class="title text-center text-xl font-bold text-black py-4"
-            >
+            <div class="title text-center text-xl font-bold text-black py-4">
               交友与直播
             </div>
             <div
-              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px]  overflow-y-scroll"
+              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px] overflow-y-scroll"
             >
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
@@ -174,23 +186,19 @@
                   target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                  <div class="truncate  w-full">
-                    <p>{{
-                    app.name
-                  }}</p>
+                  <div class="truncate w-full">
+                    <p>{{ app.name }}</p>
                   </div>
                 </a>
               </ul>
             </div>
           </div>
           <div class="card">
-            <div
-              class="title text-center text-xl font-bold text-black py-4"
-            >
+            <div class="title text-center text-xl font-bold text-black py-4">
               萝莉の二次元
             </div>
             <div
-              class="list bg-white border-[5px] rounded-[12px] border-[#c59469]  h-[200px] overflow-y-scroll"
+              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px] overflow-y-scroll"
             >
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
@@ -198,28 +206,24 @@
                 <a
                   v-for="app in groupItems.yuri2D"
                   :key="app.id"
-                  class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2  rounded-md items-center justify-center"
+                  class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
                   :href="app.link"
                   target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                  <div class="truncate  w-full">
-                    <p>{{
-                    app.name
-                  }}</p>
+                  <div class="truncate w-full">
+                    <p>{{ app.name }}</p>
                   </div>
                 </a>
               </ul>
             </div>
           </div>
           <div class="card">
-            <div
-              class="title text-center text-xl font-bold text-black py-4"
-            >
+            <div class="title text-center text-xl font-bold text-black py-4">
               心跳小说
             </div>
             <div
-              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px]  overflow-y-scroll"
+              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px] overflow-y-scroll"
             >
               <ul
                 class="mt-2 p-6 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center"
@@ -232,23 +236,19 @@
                   target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                  <div class="truncate  w-full">
-                    <p>{{
-                    app.name
-                  }}</p>
+                  <div class="truncate w-full">
+                    <p>{{ app.name }}</p>
                   </div>
                 </a>
               </ul>
             </div>
           </div>
           <div class="card">
-            <div
-              class="title text-center text-xl font-bold text-black py-4"
-            >
+            <div class="title text-center text-xl font-bold text-black py-4">
               激情美图
             </div>
             <div
-              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px]  overflow-y-scroll"
+              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px] overflow-y-scroll"
             >
               <ul
                 class="mt-2 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center p-6 items-center"
@@ -261,23 +261,19 @@
                   target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                  <div class="truncate  w-full">
-                    <p>{{
-                    app.name
-                  }}</p>
+                  <div class="truncate w-full">
+                    <p>{{ app.name }}</p>
                   </div>
                 </a>
               </ul>
             </div>
           </div>
           <div class="card">
-            <div
-              class="title text-center text-xl font-bold text-black py-4"
-            >
+            <div class="title text-center text-xl font-bold text-black py-4">
               实用工具
             </div>
             <div
-              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px]  overflow-y-scroll"
+              class="list bg-white border-[5px] rounded-[12px] border-[#c59469] h-[200px] overflow-y-scroll"
             >
               <ul
                 class="mt-2 flex-wrap grid grid-cols-2 lg:grid-cols-3 justify-center items-center p-6"
@@ -290,10 +286,8 @@
                   target="_blank"
                 >
                   <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                  <div class="truncate  w-full">
-                    <p>{{
-                    app.name
-                  }}</p>
+                  <div class="truncate w-full">
+                    <p>{{ app.name }}</p>
                   </div>
                 </a>
               </ul>
