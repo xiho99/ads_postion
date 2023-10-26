@@ -22,5 +22,9 @@ const functionHelper = {
     getAmountOfKg(amount: string, amountText = '0'): string {
         return `${amount + amountText} `;
     },
+    prefixFile(content) {
+        const base_url = window.location.origin;
+        return content?.replace(/uploads/g, base_url + '/uploads');
+    }
 }
 export default functionHelper;

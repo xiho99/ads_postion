@@ -5,7 +5,7 @@ import axios from 'axios';
 
 // 配置新建一个 axios 实例
 const service = axios.create({
-	baseURL: 'http://192.168.1.117:8000/api',
+	baseURL: '/api',
 	timeout: 50000,
 	headers: { 
 		Accept: 'application/json',
