@@ -15,11 +15,6 @@ let routes = [
 			depth: 1,
 		},
 	},
-	{
-		path:'/submitform',
-		component: () => import(`../pages/SubmitForm.vue`),
-	}
-
 ];
 
 // 创建路由对象

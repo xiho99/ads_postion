@@ -8,7 +8,7 @@
       <OnlineVideo/>
       <WelfareNavigation/>
       <DatingApps/>
-      <ApplyWebs/>
+      <ApplyWebs class="hidden"/>
     </main>
     <Footer/>
   </div>
