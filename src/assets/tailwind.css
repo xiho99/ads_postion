@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 body {
+    background-color: #F0F0F0;
     font-size: 14px;
     color: #000;
     transition: 0.2s;
