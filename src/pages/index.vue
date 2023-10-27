@@ -60,7 +60,6 @@
         </ul>
       </div>
       <!-- wzlist End here -->
-
       <!-- Online video start here -->
       <div>
         <div class="card px-4">
@@ -299,7 +298,6 @@
 </template>
 <script setup>
 import Header from "../components/Header.vue";
-import Advertisement from "../components/Addvertisement.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "@/composables/useIndex";
 const { isLoading, menus, groupItems, ads } = useIndex();
