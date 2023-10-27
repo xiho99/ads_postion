@@ -1,11 +1,11 @@
 import { onMounted, reactive, ref } from "vue";
-import { getAds, getConfiguration, getGroupCategory, getMenu, getMoreSite } from "@/api/home";
-import { IConfiguration } from "@/models/IConfiguration";
-import { IMenu } from "@/models/IMenu";
-import store from "@/store";
-import EnumApiErrorCode from "@/models/enums/enumApiErrorCode";
-import { IMoreSite } from "@/models/IMoreSite";
-import { IAds } from "@/models/IAds";
+import { getAds, getConfiguration, getGroupCategory, getMenu, getMoreSite } from "../api/home";
+import { IConfiguration } from "../models/IConfiguration";
+import { IMenu } from "../models/IMenu";
+import store from "../store";
+import EnumApiErrorCode from "../models/enums/enumApiErrorCode";
+import { IMoreSite } from "../models/IMoreSite";
+import { IAds } from "../models/IAds";
 
 export default function useIndex() {
     const isLoading = ref(false);
@@ -32,12 +32,12 @@ export default function useIndex() {
         }
         isLoading.value = false;
     }
-    const groupItems = ref({});
+    const groupItems = ref({} as any);
     const getGroupItem = async () => {
         isLoading.value = true;
         const response = await getGroupCategory();
         if (response["code"] === EnumApiErrorCode.success) {
-            response.data.forEach(e => {
+            response.data.forEach((e: any) => {
                 groupItems.value[e.key] = e.group;
             });
         }
@@ -61,11 +61,13 @@ export default function useIndex() {
         }
         isLoading.value = false;
     }
-    getConfigItem();
-    getMenuItem();
-    getGroupItem();
-    getMoreSiteItem();
-    getAdsItem();
+    onMounted(() => {
+        getConfigItem();
+        getMenuItem();
+        getGroupItem();
+        getMoreSiteItem();
+        getAdsItem();
+    })
     return {
         isLoading,
         menus,

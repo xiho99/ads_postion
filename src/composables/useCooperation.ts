@@ -1,9 +1,9 @@
 import { reactive, ref } from "vue";
-import { submitCooperate } from "@/api/cooperation";
-import EnumApiErrorCode from "@/models/enums/enumApiErrorCode";
-import notificationHelper from "@/libraries/elementUiHelpers/notificationHelper";
-import EnumMessageType from "@/models/enums/enumMessageType";
-import { ICooperation } from "@/models/ICooperation";
+import { submitCooperate } from "../api/cooperation";
+import EnumApiErrorCode from "../models/enums/enumApiErrorCode";
+import notificationHelper from "../libraries/elementUiHelpers/notificationHelper";
+import EnumMessageType from "../models/enums/enumMessageType";
+import { ICooperation } from "../models/ICooperation";
 
 export default function useCooperation() {
     const isLoading = ref(false);

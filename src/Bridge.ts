@@ -16,7 +16,7 @@ export default class Bridge {
     }
 
     // 添加回调
-    static on(id: string, name: string, callback: (data) => any) {
+    static on(id: string, name: string, callback: (data: any) => any) {
         this.listener[id] = { name, callback }
     }
 
