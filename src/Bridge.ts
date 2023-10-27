@@ -35,7 +35,7 @@ export default class Bridge {
         let element = window.document.documentElement;
         let width = element.clientWidth;
         let height = element.clientHeight;
-        if (process.env.VUE_APP_FLAVOR == 'app') {
+        if (import.meta.env.VUE_APP_FLAVOR == 'app') {
             Bridge.request({
                 name: 'getAppInfo',
             }).then(rep => {
@@ -91,7 +91,7 @@ export default class Bridge {
         // let {name, id, responsive, timeout, data} = param;
         let name = param.name;
         let id = param.id;
-        let responsive = (param.responsive == null || param.responsive == undefined) ? true : param.responsive;
+        let responsive = (param.responsive == null || false) ? true : param.responsive;
         let timeout = param.timeout;
         let data = param.data;
 
@@ -199,7 +199,7 @@ export default class Bridge {
      * ps: 非本地包一律返回pc
      */
     static getPlatform() {
-        if (process.env.VUE_APP_FLAVOR != 'app') {
+        if (import.meta.env.VUE_APP_FLAVOR != 'app') {
             return 'pc';
         }
         if (window["webkit"] && window["webkit"].messageHandlers) {

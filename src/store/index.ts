@@ -1,7 +1,7 @@
 import { createStore, useStore as baseUseStore, Store } from 'vuex';
 import { InjectionKey } from 'vue';
 import createPersistedState from "vuex-persistedstate";
-import { IConfiguration } from "@/models/IConfiguration";
+import { IConfiguration } from "../models/IConfiguration";
 
 export interface State {
 	appVersion: string,
@@ -19,9 +19,9 @@ export const key: InjectionKey<Store<State>> = Symbol('Copy From Vuex Doc');
 export default createStore<State>({
 	state() {
 		let defaultBaseUrl = '';
-		if (process.env.NODE_ENV == 'development') {
-			defaultBaseUrl = process.env.VUE_APP_DEFAULT_URL;
-		} else if (process.env.VUE_APP_FLAVOR == 'pc') {
+		if (import.meta.env.NODE_ENV == 'development') {
+			defaultBaseUrl = import.meta.env.VUE_APP_DEFAULT_URL;
+		} else if (import.meta.env.VUE_APP_FLAVOR == 'pc') {
 			defaultBaseUrl = '/api';
 		}
 		return {
@@ -46,7 +46,7 @@ export default createStore<State>({
 			state.windowInfo = windowInfo;
 		},
 		setConfiguration(state, data: IConfiguration[]) {
-			let app_config = {}
+			let app_config = {} as any;
 			data.forEach((e: IConfiguration)=>{
 				app_config[e.key] = e.content;
 			});
@@ -73,7 +73,7 @@ export default createStore<State>({
 	plugins: [
 		createPersistedState({
 			// 存储方式：localStorage、sessionStorage、cookies
-			storage: process.env.VUE_APP_FLAVOR == "app" ? localStorage : (window as any).cookies,//存储到cookie
+			storage: import.meta.env.VUE_APP_FLAVOR == "app" ? localStorage : (window as any).cookies,//存储到cookie
 			// storage:window.sessionStorage 存储到sessionStorage
 			// 如果不写默认存储到localStorage
 			// 存储的 key 的key值

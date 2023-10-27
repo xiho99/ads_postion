@@ -1,5 +1,7 @@
 import { ElMessage, ElMessageBox } from 'element-plus';
+// @ts-ignore
 import { Session } from '@/utils/storage';
+// @ts-ignore
 import qs from 'qs';
 import axios from 'axios';
 

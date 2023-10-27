@@ -1,6 +1,7 @@
-const {
-    defineConfig
-} = require('@vue/cli-service')
+// const {
+//     defineConfig
+// } = require('@vue/cli-service')
+import { defineConfig } from 'vite'
 const path = require('path');
 
 function resolve(dir) {
@@ -14,7 +15,7 @@ module.exports = defineConfig({
     assetsDir: 'assets',
     parallel: false,
     publicPath: './',
-    outputDir: `../build/output/${ process.env.VUE_APP_ENV }/${ process.env.VUE_APP_BUILD_CODE }/${ process.env.VUE_APP_FLAVOR === 'app' ? 'app' : 'pc' }/dist/`,
+    // outputDir: `../build/output/${ process.env.VUE_APP_ENV }/${ process.env.VUE_APP_BUILD_CODE }/${ process.env.VUE_APP_FLAVOR === 'app' ? 'app' : 'pc' }/dist/`,
     filenameHashing: process.env.VUE_APP_FLAVOR !== 'app', // 打包时去掉hash值
     runtimeCompiler: true, //关键点在这
     configureWebpack: {
@@ -43,9 +44,10 @@ module.exports = defineConfig({
     devServer: {
         host: '0.0.0.0',
         hot: true,
+        port: 8000,
         proxy: {
             '/api': {
-                target: 'http://admin-adsposition.hgsoog.com/',
+                target: 'http://admin-adsposition.hgsoog.com/api',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''), // 移除/api前缀
             },
