@@ -43,15 +43,14 @@ module.exports = defineConfig({
     devServer: {
         host: '0.0.0.0',
         hot: true,
-        port: 8000,
         proxy: {
             '/api': {
-                target: 'http://192.168.1.117:8000',
+                target: 'http://admin-adsposition.hgsoog.com/',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/api/, ''), // 移除/api前缀
             },
             '/uploads': {
-                target: 'http://192.168.1.117:8000/storage',
+                target: 'http://admin-adsposition.hgsoog.com/storage',
                 changeOrigin: true,
                 rewrite: (path) => path.replace(/^\/uploads/, ''),
             },
