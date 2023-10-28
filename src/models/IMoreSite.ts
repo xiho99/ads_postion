@@ -1,4 +1,4 @@
-import IBase from "@/models/users/IBase";
+import IBase from "../models/users/IBase";
 
 interface IMoreSite extends IBase {
     name: string,

@@ -1,4 +1,4 @@
-import IBase from "@/models/users/IBase";
+import IBase from "../models/users/IBase";
 
 interface IConfiguration extends IBase{
     configuration_name: string,

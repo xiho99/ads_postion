@@ -1,4 +1,4 @@
-import IBase from "@/models/users/IBase";
+import IBase from "../models/users/IBase";
 
 interface ICategory extends IBase{
     id: number,

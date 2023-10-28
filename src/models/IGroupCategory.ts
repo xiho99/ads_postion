@@ -1,5 +1,5 @@
-import IBase from "@/models/users/IBase";
-import { ICategory } from "@/models/ICategory";
+import IBase from "../models/users/IBase";
+import { ICategory } from "../models/ICategory";
 
 interface IGroupCategory extends IBase {
     cat_id: number,

@@ -1,4 +1,4 @@
-import enumMessageStatus from '@/models/enums/enumMessageType';
+import enumMessageStatus from '../../models/enums/enumMessageType';
 import { ElNotification } from 'element-plus';
 
 const notification = ( message: string, type: enumMessageStatus, title?:string ): void => {

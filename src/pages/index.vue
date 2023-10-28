@@ -26,8 +26,8 @@
         >
           <a
             class="gogo text-center rounded-md flex flex-col items-center py-[5px] relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
-            v-for="menu in menus.Icon"
-            :key="menu.id"
+            v-for="(menu , index) in menus.Icon"
+            :key="index"
             :href="menu.link"
             target="_blank"
           >
@@ -46,8 +46,8 @@
           class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-center items-center"
         >
           <a
-            v-for="button in menus.Button"
-            :key="button.id"
+            v-for="(button , index) in menus.Button"
+            :key="index"
             :style="{ backgroundColor: button.color }"
             class="text-center inline-block text-[14px] rounded-md px-[12px] text-white py-[8px] m-[5px] max-w-[120px]"
             :href="button.link"
@@ -296,10 +296,10 @@
     <Footer />
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
-import useIndex from "@/composables/useIndex";
+import useIndex from "../composables/useIndex";
 const { isLoading, menus, groupItems, ads } = useIndex();
 </script>
 <style scoped>

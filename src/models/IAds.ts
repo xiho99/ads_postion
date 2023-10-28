@@ -1,9 +1,9 @@
-import IBase from "@/models/users/IBase";
+import IBase from "../models/users/IBase";
 
 interface IAds extends IBase {
     title: string,
     link: string,
-    image: string | null,
+    image: string | undefined,
 }
 export {
     IAds,

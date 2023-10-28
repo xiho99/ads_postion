@@ -19,7 +19,7 @@ export default function useIndex() {
         }
         isLoading.value = false;
     }
-    const menus = reactive({
+    const menus = reactive<any>({
         Icon: [],
         Button: []
     });
