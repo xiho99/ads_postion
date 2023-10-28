@@ -3,13 +3,13 @@
     <Header />
     <main
       class="sm:w-[calc(100%-100px)] md:w-[calc(100%-150px)] lg:w-[calc(100%-300px)] max-w-[1460px] mx-auto"
-    >
-      <!-- Advertisement start here -->
+      v-loading="isLoading"
+    ><!-- Advertisement start here -->
       <div
         class="banner w-full max-w-[700px] mx-auto overflow-hidden"
         id="sssuo_banner"
       >
-        <ul class="m-[10px]">
+        <ul class="m-[10px]" >
           <a class="gogo w-full inline-block mb-2" v-for="(ad, index) in ads" :key="index" :href="ad.link" target="_blank">
             <img class="w-full" :src="ad.image" />
           </a>
@@ -21,9 +21,7 @@
         class="applist overflow-hidden mx-[10px] my-[5px]"
         id="sssuo_applist"
       >
-        <ul
-          class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-start items-center"
-        >
+        <ul class="flex-wrap grid grid-cols-4 md:grid-cols-6 lg:grid-cols-12 justify-start items-center">
           <a
             class="gogo text-center rounded-md flex flex-col items-center py-[5px] relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
             v-for="(menu , index) in menus.Icon"
@@ -85,7 +83,7 @@
                 </a>
               </a>
             </ul>
-            <div v-if="groupItems.onlineVideo.length > 30"
+            <div v-if="groupItems.onlineVideo?.length > 30"
               class="mt-6"
               style="border: 1px solid #c59469; margin-bottom: 3px"
             ></div>
@@ -301,7 +299,6 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "../composables/useIndex";
 const { isLoading, menus, groupItems, ads } = useIndex();
-console.log(groupItems)
 </script>
 <style scoped>
 /* scroll bar style */
