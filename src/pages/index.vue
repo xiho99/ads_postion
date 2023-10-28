@@ -73,28 +73,28 @@
               class="flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
               <a
-                v-for="app in groupItems.onlineVideo"
-                :key="app.id"
+                v-for="(app, index) in groupItems.onlineVideo" v-show="index <= 30"
+                :key="index"
                 class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
                 :href="app.link"
                 target="_blank"
               >
-                <img class="w-6 h-6 rounded-full" :src="app.image" alt="" />
-                <p class="truncate md:text-clip w-[120px]" :href="app.link">
+                <img class="w-6 h-6 rounded-full" :src="app.image" alt="loading..." />
+                <a class="truncate md:text-clip w-[120px]" :href="app.link">
                   {{ app.name }}
-                </p>
+                </a>
               </a>
             </ul>
-            <div
+            <div v-if="groupItems.onlineVideo.length > 30"
               class="mt-6"
-              style="border: 2px solid #c59469; margin-bottom: 3px"
+              style="border: 1px solid #c59469; margin-bottom: 3px"
             ></div>
             <ul
               class="mt-6 flex-wrap grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-9 justify-center items-center"
             >
               <a
-                v-for="app in groupItems.onlineVideo"
-                :key="app.id"
+                v-for="(app, index) in groupItems.onlineVideo" v-show="index > 30"
+                :key="index"
                 class="item open_now flex gap-2 hover:text-[#f00] hover:bg-[#EEE] p-2 rounded-md items-center justify-center"
                 :href="app.link"
                 target="_blank"
@@ -301,6 +301,7 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "../composables/useIndex";
 const { isLoading, menus, groupItems, ads } = useIndex();
+console.log(groupItems)
 </script>
 <style scoped>
 /* scroll bar style */

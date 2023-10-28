@@ -1,15 +1,15 @@
 /* eslint-disable */
 import { computed, reactive } from 'vue';
 import type { FormInstance } from 'element-plus';
+
 const getValidator = (rule: () => string) => {
-  const ruleForElementUI = (_: any, __: string, callback: any) => {
+  return (_: any, __: string, callback: any) => {
     const result = rule();
     if (result !== '') {
       return callback(new Error(result));
     }
     return callback();
   };
-  return ruleForElementUI;
 };
 
 const checkIllegalCharacters = (_: any, value: any, callback: any) => {
@@ -49,7 +49,7 @@ const getRules = (rules: Record<string, IRule>) => {
   return reactive(result);
 };
 const getSubmitFunction = (func: () => void) => {
-  const submitFunction = async (formEl: FormInstance | undefined) => {
+  return async (formEl: FormInstance | undefined) => {
     if (!formEl) return;
     await formEl.validate((valid) => {
       if (valid) {
@@ -57,7 +57,6 @@ const getSubmitFunction = (func: () => void) => {
       }
     });
   };
-  return submitFunction;
 };
 const checkDecimalInput = (inputVal: any) => {
   if (/\./.test(`${inputVal}`)) {
