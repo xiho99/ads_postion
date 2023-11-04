@@ -48,7 +48,7 @@ export default createStore<State>({
 		setConfiguration(state, data: IConfiguration[]) {
 			let app_config = {} as any;
 			data.forEach((e: IConfiguration)=>{
-				app_config[e.key] = e.content;
+				app_config[e.key] = e.value;
 			});
 			state.app_config = app_config;
 		}

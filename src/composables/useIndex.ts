@@ -13,8 +13,9 @@ export default function useIndex() {
     const getConfigItem = async () => {
         isLoading.value = true;
         const response = await getConfiguration();
-        if (response["code"] === EnumApiErrorCode.success) {
+        if (response.code === EnumApiErrorCode.success) {
             configurations.value = response.data;
+            console.log(configurations.value);
             store.commit('setConfiguration', response.data);
         }
         isLoading.value = false;
@@ -26,7 +27,7 @@ export default function useIndex() {
     const getMenuItem = async () => {
         isLoading.value = true;
         const response = await getMenu();
-        if (response["code"] === EnumApiErrorCode.success) {
+        if (response.code === EnumApiErrorCode.success) {
             menus.Icon = response.data.filter((item: IMenu) => item.type === 'icon');
             menus.Button = response.data.filter((item: IMenu) => item.type === 'button');
         }
@@ -36,7 +37,7 @@ export default function useIndex() {
     const getGroupItem = async () => {
         isLoading.value = true;
         const response = await getGroupCategory();
-        if (response["code"] === EnumApiErrorCode.success) {
+        if (response.code === EnumApiErrorCode.success) {
             response.data.forEach((e: any) => {
                 groupItems.value[e.key] = e.group;
             });
@@ -47,7 +48,7 @@ export default function useIndex() {
     const getMoreSiteItem = async () => {
         isLoading.value = true;
         const response = await getMoreSite();
-        if (response["code"] === EnumApiErrorCode.success) {
+        if (response.code === EnumApiErrorCode.success) {
             moreSites.value = response.data;
         }
         isLoading.value = false;
@@ -56,7 +57,7 @@ export default function useIndex() {
     const getAdsItem = async () => {
         isLoading.value = true;
         const response = await getAds();
-        if (response["code"] === EnumApiErrorCode.success) {
+        if (response.code === EnumApiErrorCode.success) {
             ads.value = response.data;
         }
         isLoading.value = false;
@@ -65,7 +66,7 @@ export default function useIndex() {
         getConfigItem();
         getMenuItem();
         getGroupItem();
-        getMoreSiteItem();
+        // getMoreSiteItem();
         getAdsItem();
     })
     return {

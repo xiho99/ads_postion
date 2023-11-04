@@ -4,7 +4,7 @@ interface IConfiguration extends IBase{
     configuration_name: string,
     key: string,
     input: string,
-    content: string,
+    value: string,
 }
 export {
     IConfiguration,

@@ -3,10 +3,10 @@ import { ElMessage, ElMessageBox } from 'element-plus';
 import { Session } from '@/utils/storage';
 // @ts-ignore
 import qs from 'qs';
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
 // 配置新建一个 axios 实例
-const service = axios.create({
+const service: AxiosInstance = axios.create({
 	baseURL: '/api',
 	timeout: 50000,
 	headers: { 
