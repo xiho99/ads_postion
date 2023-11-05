@@ -46,6 +46,7 @@ export default createStore<State>({
 			state.windowInfo = windowInfo;
 		},
 		setConfiguration(state, data: IConfiguration[]) {
+			state.app_config = {};
 			let app_config = {} as any;
 			data.forEach((e: IConfiguration)=>{
 				app_config[e.key] = e.value;
