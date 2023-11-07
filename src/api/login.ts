@@ -10,7 +10,7 @@ import { post } from './base';
  *    ip wifi的ip
  *    mandatory 是否踢下线(0|1, 点登录时传0，弹了提示踢下线时传1)
  */
-export function login(data: object) {
+export function login(data = null) {
   return post('/login', data);
 }
 
