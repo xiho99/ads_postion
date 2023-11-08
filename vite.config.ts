@@ -7,6 +7,7 @@ function resolve(dir: string) {
 }
 const viteConfig = defineConfig ((mode: ConfigEnv) => {
     const env = loadEnv(mode.mode, process.cwd());
+    const isProduction = mode.mode === 'development' ? 'http://192.168.1.117:8000' : 'http://nav.hls69.co'
     return {
         server: {
             host: '0.0.0.0',
@@ -15,12 +16,12 @@ const viteConfig = defineConfig ((mode: ConfigEnv) => {
             hmr: true,
             proxy: {
                 '/api': {
-                    target: 'http://nav.hls69.co/api',
+                    target: `${isProduction}/api`,
                     changeOrigin: true,
                     rewrite: (path: string) => path.replace(/^\/api/, ''), // 移除/api前缀
                 },
                 '/uploads/': {
-                    target: 'http://nav.hls69.co/uploads',
+                    target: `${isProduction}/uploads`,
                     changeOrigin: true,
                     rewrite: (path: string) => path.replace(/^\/uploads/, ''),
                 },
