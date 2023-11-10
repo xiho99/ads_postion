@@ -115,7 +115,7 @@
                   <div class="icon w-[34px] h-[22px] flex items-center justify-center" v-if="appHover === app.name">
                     <font-awesome-icon icon="heart" :class="app.isSaved ? 'text-red-600' : 'text-gray-400'" @click="onIsSaved('benefitOnMobilePhone', app)"/>
                   </div>
-                  <div class="image w-[34px] h-[20px]" v-else>
+                  <div class="image w-[34px] h-[22px]" v-else>
                     <img class="rounded-full object-cover object-center w-[22px] h-[20px]" :src="app.image" alt="loading..."/>
                   </div>
                   <a class="truncate md:text-clip w-[120px]" :href="app.link" target="_blank">{{ app.name }}</a>
