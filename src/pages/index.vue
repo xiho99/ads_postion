@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#fee7d3]">
+  <div :style="{ backgroundImage: `url('${store.state.app_config.bodyBackground}')` }">
     <Header />
     <main
       class="sm:w-[calc(100%-100px)] md:w-[calc(100%-150px)] lg:w-[calc(100%-300px)] max-w-[1460px] mx-auto"
@@ -298,7 +298,10 @@
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "../composables/useIndex";
+import { useStore } from "vuex";
+
 const { isLoading, menus, groupItems, ads } = useIndex();
+const store = useStore()
 </script>
 <style scoped>
 /* scroll bar style */
