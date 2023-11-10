@@ -6,6 +6,7 @@ import store from "../store";
 import EnumApiErrorCode from "../models/enums/enumApiErrorCode";
 import { IMoreSite } from "../models/IMoreSite";
 import { IAds } from "../models/IAds";
+import Cookies from "js-cookie";
 
 export default function useIndex() {
     const isLoading = ref(false);
@@ -40,6 +41,8 @@ export default function useIndex() {
           console.log(response);
         } else {
             response.data.forEach((e: any) => {
+                Cookies.set('groupCategory', 'expires: after24H', { expires: 1 });
+                if (Cookies.get('groupCategory')) return;
                 groupItems.value[e.key] = e.group.map((data: any) => ({...data, isSaved: false}));
                 store.commit('setCategoryGroup', groupItems.value);
             });

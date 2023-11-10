@@ -1,4 +1,4 @@
-import { createStore, useStore as baseUseStore, Store } from 'vuex';
+import { createStore, Store, useStore as baseUseStore } from 'vuex';
 import { InjectionKey } from 'vue';
 import createPersistedState from "vuex-persistedstate";
 import { IConfiguration } from "../models/IConfiguration";
@@ -59,8 +59,19 @@ export default createStore<State>({
 			state.groupCategory = items;
 		},
 		setIsSaveItem(state, items: { key: string, item: any }) {
-			let item = state.groupCategory[items.key].find((item: any) => item.id === items.item.id)
-			item.isSaved = !item.isSaved;
+			state.groupCategory[items.key] = state.groupCategory[items.key].map((object: any) => {
+				if (object.id === items.item.id) {
+					return { ...object, isSaved: !items.item.isSaved };
+				}
+				return object;
+			});
+			// const newArray = state.groupCategory[items.key];
+			// for (let object of newArray) {
+			// 	if (object.id === items.item.id) {
+			// 		object.isSaved = !items.item.isSaved;
+			// 	}
+			// }
+			// state.groupCategory[items.key] = newArray;
 		}
 	},
 	actions: {
