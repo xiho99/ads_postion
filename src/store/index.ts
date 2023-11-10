@@ -11,6 +11,7 @@ export interface State {
 	lexInfo: any,
 	test: string,
 	app_config: Object,
+	groupCategory: any,
   }
   
 export const key: InjectionKey<Store<State>> = Symbol('Copy From Vuex Doc');
@@ -33,6 +34,7 @@ export default createStore<State>({
 			lexInfo: {} as any,
 			test: 'hello world',
 			app_config: {},
+			groupCategory: {},
 		}
 	},
 	mutations: {
@@ -52,6 +54,13 @@ export default createStore<State>({
 				app_config[e.key] = e.value;
 			});
 			state.app_config = app_config;
+		},
+		setCategoryGroup(state, items: {}) {
+			state.groupCategory = items;
+		},
+		setIsSaveItem(state, items: { key: string, item: any }) {
+			let item = state.groupCategory[items.key].find((item: any) => item.id === items.item.id)
+			item.isSaved = !item.isSaved;
 		}
 	},
 	actions: {

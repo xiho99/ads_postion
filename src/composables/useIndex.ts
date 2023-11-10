@@ -15,7 +15,6 @@ export default function useIndex() {
         const response = await getConfiguration();
         if (response.code === EnumApiErrorCode.success) {
             configurations.value = response.data;
-            console.log(configurations.value);
             store.commit('setConfiguration', response.data);
         }
         isLoading.value = false;
@@ -33,16 +32,18 @@ export default function useIndex() {
         }
         isLoading.value = false;
     }
-    const groupItems = ref({} as any);
+    const groupItems = ref<any>({});
     const getGroupItem = async () => {
         isLoading.value = true;
         const response = await getGroupCategory();
-        if (response.code === EnumApiErrorCode.success) {
+        if (response.code !== EnumApiErrorCode.success) {
+          console.log(response);
+        } else {
             response.data.forEach((e: any) => {
-                groupItems.value[e.key] = e.group;
+                groupItems.value[e.key] = e.group.map((data: any) => ({...data, isSaved: false}));
+                store.commit('setCategoryGroup', groupItems.value);
             });
         }
-        isLoading.value = false;
     };
     const moreSites = ref<IMoreSite[]>([]);
     const getMoreSiteItem = async () => {
@@ -72,7 +73,6 @@ export default function useIndex() {
     return {
         isLoading,
         menus,
-        groupItems,
         moreSites,
         ads,
     }

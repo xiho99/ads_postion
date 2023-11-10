@@ -7,12 +7,12 @@ import store from './store/index';
 import Bridge from './Bridge';
 import { i18n } from './lang/index';
 import './assets/tailwind.css'
+import fontAwesome from './font-awesome';
 
 Bridge.init();
-
 let app = createApp(App);
 app.use(router)
    .use(i18n)
    .use(ElementPlus)
-   .use(store)
+   .use(store).component('font-awesome-icon', fontAwesome)
    .mount('#app');

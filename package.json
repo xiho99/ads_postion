@@ -11,6 +11,11 @@
     "mock_production": "vite build --mode mock_production"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.4.2",
+    "@fortawesome/free-brands-svg-icons": "^6.4.2",
+    "@fortawesome/free-regular-svg-icons": "^6.4.2",
+    "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@fortawesome/vue-fontawesome": "^3.0.5",
     "axios": "^1.2.2",
     "bignumber.js": "^9.1.1",
     "core-js": "^3.8.3",
