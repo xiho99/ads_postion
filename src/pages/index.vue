@@ -1,5 +1,6 @@
 <template>
-  <div :style="{ backgroundImage: `url('${store.state.app_config.bodyBackground}')` }">
+  <div class="bg-contain bg-center" 
+  :style="{ backgroundImage: `url('${store.state.app_config.bodyBackground}')` , backgroundColor: `${store.state.app_config.bodyBackground}` }">
     <Header/>
     <div class="sm:w-[calc(100%-100px)] md:w-[calc(100%-150px)] lg:w-[calc(100%-300px)] max-w-[1460px] mx-auto"
          v-loading="isLoading">
