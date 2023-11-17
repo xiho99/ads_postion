@@ -38,11 +38,11 @@ export default function useIndex() {
         isLoading.value = true;
         const response = await getGroupCategory();
         if (response.code !== EnumApiErrorCode.success) {
-          console.log(response);
-        } else {
+        } else {            
             response.data.forEach((e: any) => {
-                Cookies.set('groupCategory', 'expires: after24H', { expires: 1 });
-                if (Cookies.get('groupCategory')) return;
+                store.commit('setCategory', response.data);
+                // Cookies.set('groupCategory', 'expires: after24H', { expires: 1 });
+                // if (Cookies.get('groupCategory')) return;
                 groupItems.value[e.key] = e.group.map((data: any) => ({...data, isSaved: false}));
                 store.commit('setCategoryGroup', groupItems.value);
             });

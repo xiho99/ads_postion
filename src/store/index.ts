@@ -12,6 +12,7 @@ export interface State {
 	test: string,
 	app_config: Object,
 	groupCategory: any,
+	categories: Object,
   }
   
 export const key: InjectionKey<Store<State>> = Symbol('Copy From Vuex Doc');
@@ -35,6 +36,7 @@ export default createStore<State>({
 			test: 'hello world',
 			app_config: {},
 			groupCategory: {},
+			categories: {},
 		}
 	},
 	mutations: {
@@ -72,6 +74,14 @@ export default createStore<State>({
 			// 	}
 			// }
 			// state.groupCategory[items.key] = newArray;
+		},
+		setCategory(state, items: []) {
+			state.categories = {};
+			let cats = {} as any;
+			items.forEach((e: any) => {
+				cats[e.key] = e.name;
+			});
+			state.categories = cats;
 		}
 	},
 	actions: {
