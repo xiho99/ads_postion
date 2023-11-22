@@ -1,5 +1,5 @@
 import { onMounted, reactive, ref } from "vue";
-import { getAds, getConfiguration, getGroupCategory, getMenu, getMoreSite } from "../api/home";
+import { getAds, getConfiguration, getGroupCategory, getMenuIcons, getMenuButtons, getMoreSite } from "../api/home";
 import { IConfiguration } from "../models/IConfiguration";
 import { IMenu } from "../models/IMenu";
 import store from "../store";
@@ -24,12 +24,19 @@ export default function useIndex() {
         Icon: [],
         Button: []
     });
-    const getMenuItem = async () => {
+    const getMenuICon = async () => {
         isLoading.value = true;
-        const response = await getMenu();
+        const response = await getMenuIcons();
         if (response.code === EnumApiErrorCode.success) {
-            menus.Icon = response.data.filter((item: IMenu) => item.type === 'icon');
-            menus.Button = response.data.filter((item: IMenu) => item.type === 'button');
+            menus.Icon = response.data;
+        }
+        isLoading.value = false;
+    }
+    const getMenuButton = async () => {
+        isLoading.value = true;
+        const response = await getMenuButtons();
+        if (response.code === EnumApiErrorCode.success) {
+            menus.Button = response.data;
         }
         isLoading.value = false;
     }
@@ -68,9 +75,9 @@ export default function useIndex() {
     }
     onMounted(() => {
         getConfigItem();
-        getMenuItem();
+        getMenuICon();
         getGroupItem();
-        // getMoreSiteItem();
+        getMenuButton();
         getAdsItem();
     })
     return {

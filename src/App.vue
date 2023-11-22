@@ -3,9 +3,7 @@
     <router-view></router-view>
   </div>
 </template>
-<script >
+<script lang="ts">
 </script>
 
-<style>
-
-</style>
+<style></style>
