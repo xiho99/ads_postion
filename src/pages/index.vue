@@ -15,7 +15,8 @@
         </ul>
       </div>
       <!-- applist start here -->
-      <div class="applist overflow-hidden mx-[10px] my-[5px] " id="sssuo_applist">
+      <!-- desktop -->
+      <div class="applist overflow-hidden mx-[10px] my-[5px] md:block hidden" id="sssuo_applist">
         <div class="flex justify-center items-center">
           <span
             class="gogo text-center rounded-md flex flex-col items-center py-[5px] px-5 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
@@ -28,8 +29,34 @@
         </div>
       </div>
       <!-- wzlist start here -->
-      <div class="wzlist overflow-hidden mx-[10px] my-[5px] min-h-[50px]" id="sssuo_word">
+      <div class="wzlist overflow-hidden mx-[10px] my-[5px] min-h-[50px] md:block hidden" id="sssuo_word">
         <div class="flex justify-center items-center">
+          <span v-for="(button, index) in menus.Button" :key="index" :style="{ backgroundColor: button.color }"
+            class="text-center inline-block text-[14px] rounded-md px-[12px] text-white py-[8px] m-[5px] max-w-[120px]">
+            <a :href="button.link" target="_blank">
+              <div class="truncate text-center w-full">
+                {{ button.name }}
+              </div>
+            </a>
+          </span>
+        </div>
+      </div>
+         <!-- mobile -->
+         <div class="applist overflow-hidden mx-[10px] my-[5px] md:hidden blick" id="sssuo_applist">
+        <div class="grid grid-cols-4">
+          <span
+            class="gogo text-center rounded-md flex flex-col items-center py-[5px] px-5 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
+            v-for="(menu, index) in menus.Icon" :key="index">
+            <a class="flex flex-col" :href="menu.link" target="_blank">
+              <img class="w-16 h-16 rounded-md my-2 border-4 border-gray-300" :src="menu.image" alt="loading..." />
+              <p class="truncate trucateApplist">{{ menu.name }}</p>
+            </a>
+          </span>
+        </div>
+      </div>
+      <!-- wzlist start here -->
+      <div class="wzlist overflow-hidden mx-[10px] my-[5px] min-h-[50px] md:hidden blick" id="sssuo_word">
+        <div class="grid grid-cols-4">
           <span v-for="(button, index) in menus.Button" :key="index" :style="{ backgroundColor: button.color }"
             class="text-center inline-block text-[14px] rounded-md px-[12px] text-white py-[8px] m-[5px] max-w-[120px]">
             <a :href="button.link" target="_blank">
@@ -258,7 +285,10 @@
       <!-- DatingApp End here -->
     </div>
     <Footer />
-  </div>
+    <el-dialog  v-model="dialog" align-center @close="play()" class=" w-[80%] md:w-[60%] lg:w-[40% xl:w-[40%] 2xl:w-[40%] bg-cover bg-center" :style="{ backgroundImage: `url('${store.state.app_config.dialogAds}')` }">
+      <div class="text-xl text-center md:h-96 h-40"/>
+    </el-dialog>
+    </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -266,6 +296,11 @@ import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "../composables/useIndex";
 import { useStore } from "vuex";
+import { useSound } from '@vueuse/sound'
+import buttonSfx from '/music.mp3';
+
+const { play } = useSound(buttonSfx);
+const dialog = ref(true);
 const { isLoading, menus, ads } = useIndex();
 const store = useStore();
 const appHover = ref();
@@ -276,6 +311,7 @@ const onIsSaved = (key: string, item: object) => {
   }
   store.commit('setIsSaveItem', object)
 };
+
 </script>
 <style scoped lang="scss">
 /* scroll bar style */
