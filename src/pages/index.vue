@@ -41,8 +41,8 @@
           </span>
         </div>
       </div>
-         <!-- mobile -->
-         <div class="applist overflow-hidden mx-[10px] my-[5px] md:hidden blick" id="sssuo_applist">
+      <!-- mobile -->
+      <div class="applist overflow-hidden mx-[10px] my-[5px] md:hidden blick" id="sssuo_applist">
         <div class="grid grid-cols-4">
           <span
             class="gogo text-center rounded-md flex flex-col items-center py-[5px] px-5 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
@@ -285,10 +285,14 @@
       <!-- DatingApp End here -->
     </div>
     <Footer />
-    <el-dialog  v-model="dialog" align-center @close="play()" class=" w-[80%] md:w-[60%] lg:w-[40% xl:w-[40%] 2xl:w-[40%] bg-cover bg-center" :style="{ backgroundImage: `url('${store.state.app_config.dialogAds}')` }">
-      <div class="text-xl text-center md:h-96 h-40"/>
+    <el-dialog v-model="dialog" align-center @close="play()"
+      class=" w-[80%] sm:w-[50%] md:w-[55%] lg:w-[45%] xl:w-[40%] max-w-lg bg-cover bg-center"
+      :style="{ backgroundImage: `url('${store.state.app_config.dialogAds.ads}')` }">
+      <a :href="store.state.app_config.dialogAds.link" target="_blank">
+        <div class="text-xl text-center md:h-[560px] sm:h-96 h-80 cursor-pointer"></div>
+      </a>
     </el-dialog>
-    </div>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
@@ -311,7 +315,6 @@ const onIsSaved = (key: string, item: object) => {
   }
   store.commit('setIsSaveItem', object)
 };
-
 </script>
 <style scoped lang="scss">
 /* scroll bar style */

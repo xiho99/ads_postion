@@ -53,7 +53,15 @@ export default createStore<State>({
 			state.app_config = {};
 			let app_config = {} as any;
 			data.forEach((e: IConfiguration)=>{
-				app_config[e.key] = e.value;
+				console.log(e);
+				if (e.key === 'dialogAds') {
+					app_config[e.key] = {
+						ads: e.value,
+						link: e.link,
+					};
+				} else {
+					app_config[e.key] = e.value;
+				}
 			});
 			state.app_config = app_config;
 		},

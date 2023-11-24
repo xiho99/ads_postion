@@ -5,6 +5,7 @@ interface IConfiguration extends IBase{
     key: string,
     input: string,
     value: string,
+    link: string,
 }
 export {
     IConfiguration,
