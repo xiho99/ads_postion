@@ -285,9 +285,16 @@
       <!-- DatingApp End here -->
     </div>
     <Footer />
-    <el-dialog v-model="dialog" align-center @close="play()"
+    <el-dialog v-model="dialog" align-center :show-close="false" @close="play()" v-if="store.state.app_config.dialogAds?.is_visible"
       class=" w-[80%] sm:w-[50%] md:w-[55%] lg:w-[45%] xl:w-[40%] max-w-lg bg-cover bg-center"
-      :style="{ backgroundImage: `url('${store.state.app_config.dialogAds.ads}')` }">
+      :style="{ backgroundImage: `url('${store.state.app_config.dialogAds?.ads}')` }">
+      <template #header="{ close, titleId, titleClass }">
+        <div class="flex justify-end cursor-pointer" @click="onDialog()">
+          <el-tag type="danger">
+            <font-awesome-icon icon="fa-close" />
+          </el-tag>
+        </div>
+      </template>
       <a :href="store.state.app_config.dialogAds.link" target="_blank">
         <div class="text-xl text-center md:h-[560px] sm:h-96 h-80 cursor-pointer"></div>
       </a>
@@ -314,6 +321,10 @@ const onIsSaved = (key: string, item: object) => {
     item,
   }
   store.commit('setIsSaveItem', object)
+};
+const onDialog = () => {
+  dialog.value = false;
+  play();
 };
 </script>
 <style scoped lang="scss">
@@ -383,5 +394,9 @@ const onIsSaved = (key: string, item: object) => {
 
 .gogo:hover a p {
   @apply text-black;
+}
+
+:deep(.el-dialog__header) {
+  margin-right: 0;
 }
 </style>

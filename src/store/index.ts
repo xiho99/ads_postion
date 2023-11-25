@@ -53,9 +53,9 @@ export default createStore<State>({
 			state.app_config = {};
 			let app_config = {} as any;
 			data.forEach((e: IConfiguration)=>{
-				console.log(e);
 				if (e.key === 'dialogAds') {
 					app_config[e.key] = {
+						is_visible: e.is_visible,
 						ads: e.value,
 						link: e.link,
 					};

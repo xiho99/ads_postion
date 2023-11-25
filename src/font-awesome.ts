@@ -5,7 +5,7 @@ import {
 	faFlag, faGlobe, faHouse, faLemon, faAppleWhole, faCarrot, faPlay,
 	faPlus, faCloudArrowUp, faCartShopping, faCalendarAlt, faMoneyBillAlt,
 	faDashboard, faSearch, faComputer, faArrowLeft, faImage, faTrash, faBars, faArrowLeftRotate,
-	faHeart,
+	faHeart, faClose,
 } from '@fortawesome/free-solid-svg-icons';
 import {
 	faFacebook, faInstagram, faWhatsapp, faLinkedin,
@@ -18,6 +18,7 @@ library.add(
 	faCartShopping, faCalendarAlt, faMoneyBillAlt,
 	faDashboard, faSearch, faComputer, faArrowLeft,
 	faImage, faTrash, faBars, faArrowLeftRotate,faHeart,
+	faClose,
 );
 export default FontAwesomeIcon;
 
