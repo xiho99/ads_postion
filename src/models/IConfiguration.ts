@@ -6,6 +6,9 @@ interface IConfiguration extends IBase{
     input: string,
     value: string,
     link: string,
+    appName: string;
+    title: string;
+    icon: string;
 }
 export {
     IConfiguration,

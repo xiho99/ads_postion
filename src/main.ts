@@ -8,11 +8,14 @@ import store from './store/index';
 import Bridge from './Bridge';
 import { i18n } from './lang/index';
 import fontAwesome from './font-awesome';
+import { createHead } from '@unhead/vue';
 
 Bridge.init();
 let app = createApp(App);
+const head = createHead()
 app.use(router)
    .use(i18n)
    .use(ElementPlus)
+   .use(head)
    .use(store).component('font-awesome-icon', fontAwesome)
    .mount('#app');
