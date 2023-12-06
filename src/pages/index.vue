@@ -17,9 +17,9 @@
       <!-- applist start here -->
       <!-- desktop -->
       <div class="applist overflow-hidden mx-[10px] my-[5px] md:block hidden" id="sssuo_applist">
-        <div class="flex justify-center items-center">
+        <div class="flex flex-wrap justify-center items-center">
           <span
-            class="gogo text-center rounded-md flex flex-col items-center py-[5px] px-5 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
+            class="w-full sm:basis-1/2 md:basis-1/6 lg:basis-1/6 xl:basis-2/12 2xl:basis-1/12 mb-2 gogo text-center rounded-md flex flex-col items-center py-[5px] px-5 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
             v-for="(menu, index) in menus.Icon" :key="index">
             <a class="flex flex-col" :href="menu.link" target="_blank">
               <img class="w-16 h-16 rounded-md my-2 border-4 border-gray-300" :src="menu.image" alt="loading..." />
@@ -45,7 +45,7 @@
       <div class="applist overflow-hidden mx-[10px] my-[5px] md:hidden blick" id="sssuo_applist">
         <div class="grid grid-cols-4">
           <span
-            class="gogo text-center rounded-md flex flex-col items-center py-[5px] px-5 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
+            class="gogo text-center rounded-md flex flex-col items-center py-[5px] px-3 relative text-[14px] overflow-hidden transition-[2s] bg-transparent hover:bg-white"
             v-for="(menu, index) in menus.Icon" :key="index">
             <a class="flex flex-col" :href="menu.link" target="_blank">
               <img class="w-16 h-16 rounded-md my-2 border-4 border-gray-300" :src="menu.image" alt="loading..." />
@@ -302,7 +302,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
 import useIndex from "../composables/useIndex";
@@ -310,7 +310,9 @@ import { useStore } from "vuex";
 import { useSound } from '@vueuse/sound'
 import buttonSfx from '/music.mp3';
 
-const { play } = useSound(buttonSfx);
+const { play, isPlaying } = useSound(buttonSfx, {
+  volume: 0.75,
+});
 const dialog = ref(true);
 const { isLoading, menus, ads } = useIndex();
 const store = useStore();
@@ -326,6 +328,11 @@ const onDialog = () => {
   dialog.value = false;
   play();
 };
+watch(() => isPlaying.value, () => {
+  if(!isPlaying.value) {
+    play();
+  }
+});
 </script>
 <style scoped lang="scss">
 /* scroll bar style */
