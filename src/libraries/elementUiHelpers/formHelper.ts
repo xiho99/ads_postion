@@ -1,6 +1,8 @@
 /* eslint-disable */
 import { computed, reactive } from 'vue';
 import type { FormInstance } from 'element-plus';
+import { useI18n } from 'vue-i18n';
+
 
 const getValidator = (rule: () => string) => {
   return (_: any, __: string, callback: any) => {
@@ -23,6 +25,7 @@ export interface IRule {
   customRule?: () => string,
   required?: boolean,
   isTriggerByChange?: boolean;
+  message?: string;
 }
 
 const getRules = (rules: Record<string, IRule>) => {
@@ -34,7 +37,7 @@ const getRules = (rules: Record<string, IRule>) => {
       trigger = rules[key].isTriggerByChange ? 'change' : 'blur';
       result[key].push({
         required: true,
-        message: computed(() => ('required')),
+        message: rules.phone.message ?? 'required',
         trigger,
       })
     }

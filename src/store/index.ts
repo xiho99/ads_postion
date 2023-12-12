@@ -1,7 +1,6 @@
 import { createStore, Store, useStore as baseUseStore } from "vuex";
 import { InjectionKey } from "vue";
 import createPersistedState from "vuex-persistedstate";
-import { IConfiguration } from "../models/IConfiguration";
 
 export interface State {
   appVersion: string;
@@ -11,8 +10,8 @@ export interface State {
   lexInfo: any;
   test: string;
   app_config: Object;
-  groupCategory: any;
-  categories: Object;
+  userInfo: any;
+  click: number;
 }
 
 export const key: InjectionKey<Store<State>> = Symbol("Copy From Vuex Doc");
@@ -35,8 +34,8 @@ export default createStore<State>({
       lexInfo: {} as any,
       test: "hello world",
       app_config: {},
-      groupCategory: {},
-      categories: {},
+      userInfo: {} as any,
+      click: 0,
     };
   },
   mutations: {
@@ -49,55 +48,12 @@ export default createStore<State>({
     SET_WINDOW_INFO(state, windowInfo: any) {
       state.windowInfo = windowInfo;
     },
-    setConfiguration(state, data: IConfiguration[]) {
-      state.app_config = {};
-      let app_config = {} as any;
-      data.forEach((e: IConfiguration) => {
-        if (e.key === "dialogAds") {
-          app_config[e.key] = {
-            is_visible: e.is_visible,
-            ads: e.value,
-            link: e.link,
-          };
-        } else if (e.key === "headTitle") {
-          app_config[e.key] = {
-            title: e.appName,
-            icon: e.value,
-            link: e.link,
-          };
-        } else {
-          app_config[e.key] = e.value;
-        }
-      });
-      state.app_config = app_config;
+    SET_USERINFO(state, userInfo: object) {
+      state.userInfo = userInfo;
     },
-    setCategoryGroup(state, items: {}) {
-      state.groupCategory = items;
-    },
-    setIsSaveItem(state, items: { key: string; item: any }) {
-      state.groupCategory[items.key] = state.groupCategory[items.key].map(
-        (object: any) => {
-          if (object.id === items.item.id) {
-            return { ...object, isSaved: !items.item.isSaved };
-          }
-          return object;
-        }
-      );
-      // const newArray = state.groupCategory[items.key];
-      // for (let object of newArray) {
-      // 	if (object.id === items.item.id) {
-      // 		object.isSaved = !items.item.isSaved;
-      // 	}
-      // }
-      // state.groupCategory[items.key] = newArray;
-    },
-    setCategory(state, items: []) {
-      state.categories = {};
-      let cats = {} as any;
-      items.forEach((e: any) => {
-        cats[e.key] = e.name;
-      });
-      state.categories = cats;
+    SET_CLICK(state, click = 1) {
+      if (state.click === 10) return;
+      state.click += click;
     },
   },
   actions: {

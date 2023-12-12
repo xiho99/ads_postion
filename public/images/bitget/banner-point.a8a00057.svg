@@ -1,0 +1,16 @@
+<svg width="77" height="74" viewBox="0 0 77 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group 1430103968">
+<ellipse id="Ellipse 50" cx="19.5606" cy="19.5606" rx="19.5606" ry="19.5606" transform="matrix(-0.335469 0.942051 0.983575 -0.180501 25.8008 21.958)" fill="#78FB9D"/>
+<g id="Mask group">
+<mask id="mask0_1033_4159" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="20" y="21" width="41" height="37">
+<path id="Union" d="M56.7224 21.3292C59.0158 24.0249 59.5284 28.2361 57.7166 33.3239C54.0925 43.5009 42.5409 53.3318 31.9153 55.2817C26.6032 56.2566 22.5282 55.0772 20.2339 52.3821L22.2286 54.726C24.5226 57.4225 28.5983 58.6027 33.9117 57.6276C44.5373 55.6777 56.089 45.8468 59.713 35.6698C61.5248 30.582 61.0123 26.3708 58.7188 23.675L56.7224 21.3292Z" fill="black"/>
+</mask>
+<g mask="url(#mask0_1033_4159)">
+<g id="Group 1430103962">
+<rect id="Rectangle 1" width="37.889" height="47.5923" transform="matrix(-0.76155 0.648106 0.648106 0.76155 34.9814 32.752)" fill="#0C0C0C"/>
+<rect id="Rectangle 2" width="37.889" height="47.5923" transform="matrix(-0.76155 0.648106 0.648106 0.76155 63.835 8.19531)" fill="#FCE917"/>
+</g>
+</g>
+</g>
+</g>
+</svg>
