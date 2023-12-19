@@ -1,9 +1,9 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import store from './store/index';
+import store from './store';
 import Bridge from './Bridge';
-import { i18n } from './lang/index';
+import { i18n } from './lang';
 import './assets/tailwind.css'
 import ElementPlus from 'element-plus';
 
