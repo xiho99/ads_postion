@@ -7,7 +7,7 @@ function resolve(dir: string) {
 }
 const viteConfig = defineConfig ((mode: ConfigEnv) => {
     const env = loadEnv(mode.mode, process.cwd());
-    const isProduction = mode.mode === 'development' ? 'http://192.168.1.117:8000' : 'http://nav.hls69.co'
+    const isProduction = mode.mode === 'development' ? 'http://127.0.0.1:8000' : 'http://navads.hgsoog.com'
     return {
         server: {
             host: '0.0.0.0',
