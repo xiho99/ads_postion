@@ -5,7 +5,7 @@ import path from 'path';
 
 const viteConfig = defineConfig ((mode: ConfigEnv) => {
     const env = loadEnv(mode.mode, process.cwd());
-    const isProduction = mode.mode === 'development' ? 'http://www.xn--iqro9o0j.club' : 'http://wa.hgsoog.com'
+    const isProduction = mode.mode === 'development' ? 'http://www.xn--iqro9o0j.club' : 'http://ws.hgsoog.com'
     return {
         server: {
             host: '0.0.0.0',
